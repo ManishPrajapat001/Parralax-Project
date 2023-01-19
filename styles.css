@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0px;
+/* content's size will be reduced when padding or margin gets added or increased so than overall size of div doesn't increase */
+    box-sizing: border-box;
+    
+}
+
+
+#wrapper{
+    /* view screen */
+    /* we want all our  content lies in wrapper,so  it's viewheight should be equal to viewport, */
+    height: 100vh;
+    /* don't wanna scroll horizontally therefore hiding data along x axis */
+    overflow-x: hidden;
+    /* wanna scroll downwards yes */
+    overflow-y: auto;
+    /* to play in 3D we need a perspective */
+    perspective: 10px;
+    /* it is a ditance b/w screen and ur eyes */
+}
+/* we want our text in centre that we can do with the help of flex */
+/* ther are two images in container and we want to overlapp them then we have to use absolue position ,therfore we need an ancestor who is non static */
+.container{
+    position: relative;
+    /* due to default  flex property both imges coming in same row initially  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    z-index: -1;
+    
+}
+.background, .foreground{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    /* to fit image in container,Why use container to make flex */
+    object-fit: cover;
+    /* The CSS object fir property is used to specify how an <img> or <video> should be resized to fit in a container*/
+}
+.background{ 
+    /* to send background-image pahad far from man */
+    transform: translateZ(-40px) scale(6);  
+}
+ 
+.foreground{
+    transform: translateZ(-20px) scale(3);
+    width: 100vw; 
+}
+
+
+/* this info will be provided to you */
+h1{
+    position: absolute;
+    top: 7.8rem;
+    font-size: 10rem;
+    letter-spacing: 4px;
+    color: white;
+    text-shadow: 0 0 15px rgba(0, 0,0, 0.6);
+}
+
+/* section */
+section{
+    background-color: rgb(45, 45,45);
+    color: white;
+    padding: 5rem 0;
+}
+
+.secHeading{
+    font-size: 5rem;
+    padding: 0 10rem;
+}
+
+.text{
+    font-size: 1.5rem;
+    padding: 0 10rem;
+    margin: 5rem 0;
+    
+}
+.desc{
+    /* yeah move krr raha hey */
+    position: absolute;
+    background-color: white;
+    padding: 0.5rem 2.5rem;
+    top:50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: black;
+    font-size: 3.5rem;
+    font-weight: 600;
+
+}
+
+/* adding background image to BIKING */
+.bg{
+    position: relative;
+    width: 100%;
+    background-attachment: fixed;
+    height: 500px;
+    /* to properly fir the image in background aur saari space cover krr rahi ho and properly fir bhi ho */
+    background-size: cover;
+    background-position: center;
+
+}
+.bg1{
+    background-image: url(sport-1.jpg);
+}
+.bg2{
+    background-image: url(sport-2.jpg);
+}
+.bg3{
+    background-image: url(sport-3.jpg);
+}
